@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.hivejack</groupId>
+	<artifactId>dayz</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>DayZ Hivejack</name>
+	<description>DayZ hive database editor</description>
+	<url>http://www.hivejack.com/dayz</url>
+	<properties>
+		<!-- general properties -->
+		<java-version>1.7</java-version>
+		
+		<!-- dependency versions -->
+		<hibernate-jpa-version>2.0-cr-1</hibernate-jpa-version>
+		
+		<!-- plugin versions -->
+		<mvn-compiler-plugin-version>2.5.1</mvn-compiler-plugin-version>
+		<mvn-dependency-plugin-version>2.5.1</mvn-dependency-plugin-version>
+	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.hibernate.java-persistence</groupId>
+				<artifactId>jpa-api</artifactId>
+				<version>${hibernate-jpa-version}</version>
+			</dependency>			
+		</dependencies>
+	</dependencyManagement>
+	<modules>
+		<module>model</module>
+	</modules>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${mvn-compiler-plugin-version}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java-version}</source>
+					<target>${java-version}</target>
+					<showWarnings>true</showWarnings>
+					<showDeprecation>true</showDeprecation>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
